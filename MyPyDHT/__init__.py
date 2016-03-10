@@ -17,14 +17,17 @@ _cached_data = (0, 0)
 def sensor_read(gpio_pin, reading_attempts=1, use_cache=False):
     global _cached_data
     attempts = 0
-    while attempts < reading_attempts:
+    while True:
         result, humidity, temperature = MyPyDHT.dht_driver._dht_read(gpio_pin)
         if result == DHT_OK:
             _cached_data = humidity, temperature
             break
         else:
             attempts += 1
-            time.sleep(1)
+            if attempts < reading_attempts:
+                time.sleep(1)
+            else:
+                break
     
     if result != DHT_OK:
         if use_cache:
