@@ -1,0 +1,3 @@
+[submodule "source/MyDHT_RPi_Driver"]
+	path = source/MyDHT_RPi_Driver
+	url = https://github.com/freedom27/MyDHT_RPi_Driver
