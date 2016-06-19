@@ -3,14 +3,14 @@
 #include "MyDHT_RPi_Driver/dht_driver.h"
 
 static PyObject *sensor_read(PyObject *self, PyObject *args) {
-    const int gpio_pin;
+    int sensor_type, gpio_pin;
     int result;
 
-    if (!PyArg_ParseTuple(args, "i", &gpio_pin))
+    if (!PyArg_ParseTuple(args, "ii", &sensor_type, &gpio_pin))
         return NULL;
 
     struct dht_sensor_data data;
-    result = dht_read(gpio_pin, &data);
+    result = dht_read(sensor_type, gpio_pin, &data);
     if(result < 0)
         data.humidity = data.temperature = 0.0f;
 

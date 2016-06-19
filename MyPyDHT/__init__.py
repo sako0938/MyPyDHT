@@ -1,5 +1,10 @@
 import MyPyDHT.dht_driver
 import time
+from enum import Enum
+
+class Sensor(Enum):
+    DHT11 = 0
+    DHT22 = 1
 
 class DHTException(Exception):
     def __init__(self, mess):
@@ -14,11 +19,11 @@ DHT_OK                  =  0
 
 _cached_data = (0, 0)
 
-def sensor_read(gpio_pin, reading_attempts=1, use_cache=False):
+def sensor_read(sensor_type, gpio_pin, reading_attempts=1, use_cache=False):
     global _cached_data
     attempts = 0
     while True:
-        result, humidity, temperature = MyPyDHT.dht_driver._dht_read(gpio_pin)
+        result, humidity, temperature = MyPyDHT.dht_driver._dht_read(sensor_type.value, gpio_pin)
         if result == DHT_OK:
             _cached_data = humidity, temperature
             break
