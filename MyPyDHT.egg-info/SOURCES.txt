@@ -1,0 +1,12 @@
+README.md
+setup3.py
+MyPyDHT/__init__.py
+MyPyDHT.egg-info/PKG-INFO
+MyPyDHT.egg-info/SOURCES.txt
+MyPyDHT.egg-info/dependency_links.txt
+MyPyDHT.egg-info/top_level.txt
+source/py_driver_wrapper.c
+source/MyDHT_RPi_Driver/dht_driver.c
+source/MyDHT_RPi_Driver/MyGPIO/my_gpio.c
+source/MyDHT_RPi_Driver/MyGPIO/my_time_utils.c
+source/MyDHT_RPi_Driver/MyGPIO/my_utils.c
