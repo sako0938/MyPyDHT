@@ -12,7 +12,7 @@ setup(
     author='Stefano Vettor',
 #    long_description=open('README.txt').read(),
 	url='https://github.com/sako0938/MyPyDHT',
-     ext_modules = [Extension('MyPyDHT.dht_driver', source_files, extra_compile_args=['-std=gnu99'])]
+    ext_modules = [Extension('MyPyDHT.dht_driver', source_files, extra_compile_args=['-std=gnu99'])]
     # resource_filename(package_or_requirement, resource_name
 )
 
